@@ -14,7 +14,10 @@ build dev cluster
 run the example
 -----------------
 
-    ./dev/dev1/bin/pipetest attach
-    (dev1@127.0.0.1)1> reddit:subreddit_content("erlang").
-    {eoi,[{reddit_w_co...}
-    (dev1@127.0.0.1)1> ^D
+```erlang
+$ ./dev/dev1/bin/pipetest attach
+    
+(dev1@127.0.0.1)1> reddit:subreddit_content("erlang").
+{eoi,[{reddit_w_co...}
+(dev1@127.0.0.1)1> ^D
+```

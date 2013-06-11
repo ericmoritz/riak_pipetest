@@ -1,0 +1,9 @@
+.eunit/
+ebin/
+deps/
+data/
+log/
+dev/
+rel/pipetest
+*.beam
+*~

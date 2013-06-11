@@ -1,0 +1,13 @@
+{application, reddit,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+		  inets
+                 ]},
+  {mod, { reddit_app, []}},
+  {env, []}
+ ]}.

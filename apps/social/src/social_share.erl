@@ -11,14 +11,9 @@
 -include_lib("riak_pipe/include/riak_pipe_log.hrl").
 
 mapper(Url, Partition, FittingDetails) ->
-    % map the Url to three outputs to be distributed to the cluster
-    [
-     riak_pipe_vnode_worker:send_output(
-       {Type, Url},
-       Partition, FittingDetails
-      )
-     || Type <- [facebook, twitter]
-    ],
+    % map the Url to two different values to be distributed to the cluster
+    riak_pipe_vnode_worker:send_output({facebook, Url}, Partition, FittingDetails),
+    riak_pipe_vnode_worker:send_output({twitter, Url}, Partition, FittingDetails),
     ok.
 
 fetch({facebook, Url}, Partition, FittingDetails) ->

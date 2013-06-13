@@ -58,7 +58,7 @@ send_output({error, _}=E, _Type, _Url, _Partition, FittingDetails) ->
 
 
 fetch_fb_data(Url) ->
-    SharesUrl = "http://graph.facebook.com/?id=" ++ Url,
+    SharesUrl = "http://graph.facebook.com/?id=" ++ mochiweb_util:quote_plus(Url),
     error_logger:info_msg("~s~n", [SharesUrl]),
     http:fetch_json(SharesUrl).
 
@@ -78,7 +78,7 @@ foreach_fb_count(Url, Fun) ->
 
 
 fetch_twitter_shares(Url) ->
-    SharesUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" ++ Url,
+    SharesUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" ++ mochiweb_util:quote_plus(Url),
     case http:fetch_json(SharesUrl) of
 	{ok, Data} ->
 	    json:get(<<"count">>, Data, 0);

@@ -22,7 +22,7 @@ init(Partition, FittingDetails) ->
     {ok, #state{p=Partition, fd=FittingDetails}}.
 
 process(Url, _Last, #state{fd=FD, p=P}=State) ->
-    Ret = reddit_http:fetch(Url),
+    Ret = http:fetch(Url),
     riak_pipe_vnode_worker:send_output({Url, Ret}, P, FD),
     {ok, State}.
 

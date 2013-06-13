@@ -15,7 +15,7 @@
 ]).
 
 fetch(Subreddit) ->
-    reddit_http:fetch_json(
+    http:fetch_json(
       "http://www.reddit.com/r/" ++ Subreddit ++ ".json"
     ).
 
